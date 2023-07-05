@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hcweather.R
 import com.example.hcweather.model.City
+import com.example.hcweather.view.CityListFragment
 import com.example.hcweather.view.MainActivity
 
 class CityAdopter(
     listOfCities: ArrayList<City>,
-//    private val listener: RecyclerViewEvent
-    private val listener: MainActivity
+    private val listener: CityListFragment
 ): RecyclerView.Adapter<CityAdopter.ViewHolder>() {
 
     private var listOfCities: ArrayList<City>

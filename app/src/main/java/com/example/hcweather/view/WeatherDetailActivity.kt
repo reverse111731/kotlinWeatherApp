@@ -26,13 +26,6 @@ class WeatherDetailActivity  : AppCompatActivity() {
         val cityName = intent.getStringExtra("cityName")
 
 
-        // This is a sample of simple Dependency Injection Structure
-//        val RetrofitClientInstance = RetrofitClient()
-//        val weatherApiInstance = RetrofitClientInstance.getInstance().create(WeatherApi::class.java)
-//        val weatherDetailRepositoryInstance = WeatherDetailRepository(weatherApiInstance)
-//        viewModel = WeatherDetailViewModel(weatherDetailRepositoryInstance)
-
-
         //Function call on ViewModel
         viewModel.getWeather(cityName.toString().lowercase())
 
@@ -40,13 +33,6 @@ class WeatherDetailActivity  : AppCompatActivity() {
     }
 
     private fun getLiveData() {
-
-        //This is mutableLiveData .. can be edited by view Level which is bad
-//        viewModel._weatherDataError.value = true
-
-        //This is ImmutableLiveData .. Cannot be Change at UI level (GOOD)
-//        viewModel.weatherDataError.value = false
-
 
         viewModel.weatherData.observe(this) { data ->
             data?.let {
@@ -92,7 +78,6 @@ class WeatherDetailActivity  : AppCompatActivity() {
                 }
             }
         }
-
 
     }
 }

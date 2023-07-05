@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "com.google.devtools.ksp" version "1.8.21-1.0.11"
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -18,9 +19,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // For viewBinding
     buildFeatures {
         viewBinding = true
     }
+
 
     buildTypes {
         release {
@@ -29,13 +32,11 @@ android {
         }
     }
     compileOptions {
+
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-//        sourceCompatibility = JavaVersion.VERSION_1_8
-//        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-//        jvmTarget = '1.8'
         jvmTarget = '17'
     }
 }
@@ -46,16 +47,28 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.media3:media3-common:1.0.0-alpha03'
+
+    // For unit test
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //etc
+    implementation "androidx.arch.core:core-testing:2.2.0"
 
     // LifeCycle
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
 
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.0"
+
+
     // For Swipe / refresh pull
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+//    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
@@ -63,7 +76,9 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
 
     // Koin
@@ -72,6 +87,8 @@ dependencies {
     implementation "io.insert-koin:koin-annotations:1.2.2"
     ksp "io.insert-koin:koin-ksp-compiler:1.2.2"
 
-
+    // Mockk
+    testImplementation 'io.mockk:mockk:1.12.0'
+    testImplementation "io.strikt:strikt-core:0.32.0"
 
 }

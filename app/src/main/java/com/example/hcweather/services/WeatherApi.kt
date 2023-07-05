@@ -1,6 +1,5 @@
 package com.example.hcweather.services
 
-import com.example.hcweather.model.WeatherModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,5 +11,5 @@ interface WeatherApi {
         @Query("q") cityName: String,
         @Query("units") units: String = "metric",
         @Query("appid") id: String ="79606421b40eac4780d23b69202b4a56",
-    ): Response<WeatherModel>
+    ): Response<WeatherResponse>
 }

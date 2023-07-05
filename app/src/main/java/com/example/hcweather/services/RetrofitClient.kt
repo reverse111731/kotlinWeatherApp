@@ -1,6 +1,5 @@
 package com.example.hcweather.services
 
-import com.example.hcweather.model.WeatherModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

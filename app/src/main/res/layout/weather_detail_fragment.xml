@@ -6,7 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/bg_screen"
+    >
 
 <!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
 <!--        android:id="@+id/swipe_refresh_layout"-->
@@ -15,10 +17,12 @@
 <!--        android:background="@drawable/bg_screen"-->
 <!--        tools:context=".view.MainWeatherActivity">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="16dp"-->
+<!--            android:background="@drawable/bg_screen"-->
+<!--            >-->
 
             <TextView
                 android:id="@+id/tv_error"
@@ -188,7 +192,7 @@
 
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 <!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 

@@ -6,16 +6,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hcweather.model.WeatherModel
-import com.example.hcweather.repository.WeatherDetailRepositoryImpl
+import com.example.hcweather.repository.WeatherDetailRepository
 
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class WeatherDetailViewModel(
-    private val weatherDetailRepository: WeatherDetailRepositoryImpl
+    private val weatherDetailRepository: WeatherDetailRepository
 ) : ViewModel(){
 
     private val _weatherData = MutableLiveData<WeatherModel?>()
+
     val weatherData: LiveData<WeatherModel?> = _weatherData
 
     private val _weatherDataError = MutableLiveData<Boolean>()
@@ -23,6 +24,7 @@ class WeatherDetailViewModel(
 
 
     fun getWeather(cityName: String){
+        //This is the coroutine
         viewModelScope.launch {
             try {
                 val result = weatherDetailRepository.getDataFromAPI(cityName)
@@ -33,8 +35,10 @@ class WeatherDetailViewModel(
                 Log.e("some weird Error", "${e.message}")
                 _weatherDataError.value = true
             }
-
-
         }
+    }
+
+    fun addition(x: Int, y: Int): Int {
+        return x+y
     }
 }
