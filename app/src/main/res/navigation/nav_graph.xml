@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recyclerFragment">
+
+    <fragment
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.hcweather.view.CityListFragment"
+        tools:layout="@layout/recycler_view_fragment">
+        <action
+            android:id="@+id/action_recyclerFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.example.hcweather.view.WeatherDetailFragment"
+        tools:layout="@layout/weather_detail_fragment">
+
+        <argument
+            android:name="cityName"
+            app:argType="string"
+            android:defaultValue="manila" />
+    </fragment>
+
+</navigation>
